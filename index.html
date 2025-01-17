@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EMI Details</h1>
+
+        <h2>Summary Details</h2>
+        <table>
+            <tr>
+                <th>EMI Installment</th>
+                <td>7500</td>
+            </tr>
+            <tr>
+                <th>Opening Balance</th>
+                <td>24000</td>
+            </tr>
+            <tr>
+                <th>Auto Transport Deduction</th>
+                <td>450</td>
+            </tr>
+            <tr>
+                <th>Balance</th>
+                <td>23550</td>
+            </tr>
+            <tr>
+                <th>New Balance</th>
+                <td>32000</td>
+            </tr>
+            <tr>
+                <th>Old Balance Closing</th>
+                <td>1050</td>
+            </tr>
+            <tr>
+                <th>Current Balance</th>
+                <td>33050</td>
+            </tr>
+        </table>
+
+        <h2>Table 1: Main EMI Schedule</h2>
+        <table id="table1">
+            <thead>
+                <tr>
+                    <th>Month-Year</th>
+                    <th>Starting Balance</th>
+                    <th>EMI</th>
+                    <th>Closing Balance</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nov-24</td>
+                    <td>23550</td>
+                    <td>7500</td>
+                    <td>16050</td>
+                    <td><input type="checkbox" checked disabled></td>
+                </tr>
+                <tr>
+                    <td>Dec-24</td>
+                    <td>16050</td>
+                    <td>7500</td>
+                    <td>8550</td>
+                    <td><input type="checkbox" checked disabled></td>
+                </tr>
+                <tr>
+                    <td>Jan-25</td>
+                    <td>8550</td>
+                    <td>7500</td>
+                    <td>1050</td>
+                    <td><input type="checkbox" checked disabled></td>
+                </tr>
+                <tr>
+                    <td>Feb-25</td>
+                    <td>33050</td>
+                    <td>7500</td>
+                    <td>25550</td>
+                    <td><input type="checkbox" data-id="1"></td>
+                </tr>
+                <tr>
+                    <td>Mar-25</td>
+                    <td>25550</td>
+                    <td>7500</td>
+                    <td>18050</td>
+                    <td><input type="checkbox" data-id="2"></td>
+                </tr>
+                <tr>
+                    <td>Apr-25</td>
+                    <td>18050</td>
+                    <td>7500</td>
+                    <td>10550</td>
+                    <td><input type="checkbox" data-id="3"></td>
+                </tr>
+                <tr>
+                    <td>May-25</td>
+                    <td>10550</td>
+                    <td>8000</td>
+                    <td>2550</td>
+                    <td><input type="checkbox" data-id="4"></td>
+                </tr>
+                <tr>
+                    <td>Jun-25</td>
+                    <td>2550</td>
+                    <td>8000</td>
+                    <td>-5450</td>
+                    <td><input type="checkbox" data-id="5"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Balance Amount</h3>
+        <p id="balanceAmount">Starting Balance of First Unchecked Row: 33050</p>
+
+        <h2>Table 2: Smaller EMI Schedule</h2>
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th>Month-Year</th>
+                    <th>Starting Balance</th>
+                    <th>EMI</th>
+                    <th>Closing Balance</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nov-24</td>
+                    <td>3000</td>
+                    <td>500</td>
+                    <td>2500</td>
+                    <td><input type="checkbox" checked disabled></td>
+                </tr>
+                <tr>
+                    <td>Dec-24</td>
+                    <td>2500</td>
+                    <td>500</td>
+                    <td>2000</td>
+                    <td><input type="checkbox" checked disabled></td>
+                </tr>
+                <tr>
+                    <td>Jan-25</td>
+                    <td>2000</td>
+                    <td>500</td>
+                    <td>1500</td>
+                    <td><input type="checkbox" checked disabled></td>
+                </tr>
+                <tr>
+                    <td>Feb-25</td>
+                    <td>1500</td>
+                    <td>500</td>
+                    <td>1000</td>
+                    <td><input type="checkbox" data-id="6"></td>
+                </tr>
+                <tr>
+                    <td>Mar-25</td>
+                    <td>1000</td>
+                    <td>500</td>
+                    <td>500</td>
+                    <td><input type="checkbox" data-id="7"></td>
+                </tr>
+                <tr>
+                    <td>Apr-25</td>
+                    <td>500</td>
+                    <td>500</td>
+                    <td>0</td>
+                    <td><input type="checkbox" data-id="8"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="completeButton">Save Completed States</button>
+        <div class="completed-message" id="completedMessage">Task Completed!</div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
