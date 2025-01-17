@@ -3,180 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMI Details</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>EMI Summary and Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .nav-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .paid {
+            color: green;
+            font-weight: bold;
+        }
+        .upcoming {
+            color: orange;
+            font-weight: bold;
+        }
+        .pending {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>EMI Details</h1>
+        <h1>EMI Summary and Tables</h1>
 
-        <h2>Summary Details</h2>
-        <table>
-            <tr>
-                <th>EMI Installment</th>
-                <td>7500</td>
-            </tr>
-            <tr>
-                <th>Opening Balance</th>
-                <td>24000</td>
-            </tr>
-            <tr>
-                <th>Auto Transport Deduction</th>
-                <td>450</td>
-            </tr>
-            <tr>
-                <th>Balance</th>
-                <td>23550</td>
-            </tr>
-            <tr>
-                <th>New Balance</th>
-                <td>32000</td>
-            </tr>
-            <tr>
-                <th>Old Balance Closing</th>
-                <td>1050</td>
-            </tr>
-            <tr>
-                <th>Current Balance</th>
-                <td>33050</td>
-            </tr>
-        </table>
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="#summary">Summary Details</a>
+            <a href="#table1">Main EMI Table</a>
+            <a href="#table2">Smaller EMI Table</a>
+        </div>
 
-        <h2>Table 1: Main EMI Schedule</h2>
-        <table id="table1">
-            <thead>
-                <tr>
-                    <th>Month-Year</th>
-                    <th>Starting Balance</th>
-                    <th>EMI</th>
-                    <th>Closing Balance</th>
-                    <th>Completed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Nov-24</td>
-                    <td>23550</td>
-                    <td>7500</td>
-                    <td>16050</td>
-                    <td><input type="checkbox" checked disabled></td>
-                </tr>
-                <tr>
-                    <td>Dec-24</td>
-                    <td>16050</td>
-                    <td>7500</td>
-                    <td>8550</td>
-                    <td><input type="checkbox" checked disabled></td>
-                </tr>
-                <tr>
-                    <td>Jan-25</td>
-                    <td>8550</td>
-                    <td>7500</td>
-                    <td>1050</td>
-                    <td><input type="checkbox" checked disabled></td>
-                </tr>
-                <tr>
-                    <td>Feb-25</td>
-                    <td>33050</td>
-                    <td>7500</td>
-                    <td>25550</td>
-                    <td><input type="checkbox" data-id="1"></td>
-                </tr>
-                <tr>
-                    <td>Mar-25</td>
-                    <td>25550</td>
-                    <td>7500</td>
-                    <td>18050</td>
-                    <td><input type="checkbox" data-id="2"></td>
-                </tr>
-                <tr>
-                    <td>Apr-25</td>
-                    <td>18050</td>
-                    <td>7500</td>
-                    <td>10550</td>
-                    <td><input type="checkbox" data-id="3"></td>
-                </tr>
-                <tr>
-                    <td>May-25</td>
-                    <td>10550</td>
-                    <td>8000</td>
-                    <td>2550</td>
-                    <td><input type="checkbox" data-id="4"></td>
-                </tr>
-                <tr>
-                    <td>Jun-25</td>
-                    <td>2550</td>
-                    <td>8000</td>
-                    <td>-5450</td>
-                    <td><input type="checkbox" data-id="5"></td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- Summary Details -->
+        <section id="summary">
+            <h2>Summary Details</h2>
+            <p><strong>EMI Installment:</strong> 7500</p>
+            <p><strong>Opening Balance:</strong> 24000</p>
+            <p><strong>Auto Transport Deduction:</strong> 450</p>
+            <p><strong>Balance:</strong> 23550</p>
+            <p><strong>New Balance:</strong> 32000</p>
+            <p><strong>Old Balance Closing:</strong> 1050</p>
+            <p id="currentBalance"><strong>Current Balance:</strong> 33050</p>
+        </section>
 
-        <h3>Balance Amount</h3>
-        <p id="balanceAmount">Starting Balance of First Unchecked Row: 33050</p>
+        <!-- Table 1 -->
+        <section id="table1">
+            <h2>Table 1: Main EMI Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month-Year</th>
+                        <th>EMI No.</th>
+                        <th>Starting Balance</th>
+                        <th>EMI</th>
+                        <th>Closing Balance</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="table1Body">
+                    <tr>
+                        <td>Nov-24</td>
+                        <td>1st EMI</td>
+                        <td>23550</td>
+                        <td>7500</td>
+                        <td>16050</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Dec-24</td>
+                        <td>2nd EMI</td>
+                        <td>16050</td>
+                        <td>7500</td>
+                        <td>8550</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jan-25</td>
+                        <td>3rd EMI</td>
+                        <td>8550</td>
+                        <td>7500</td>
+                        <td>1050</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Feb-25</td>
+                        <td>4th EMI</td>
+                        <td>33050</td>
+                        <td>7500</td>
+                        <td>25550</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Mar-25</td>
+                        <td>5th EMI</td>
+                        <td>25550</td>
+                        <td>7500</td>
+                        <td>18050</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Apr-25</td>
+                        <td>6th EMI</td>
+                        <td>18050</td>
+                        <td>7500</td>
+                        <td>10550</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>May-25</td>
+                        <td>7th EMI</td>
+                        <td>10550</td>
+                        <td>8000</td>
+                        <td>2550</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jun-25</td>
+                        <td>8th EMI</td>
+                        <td>2550</td>
+                        <td>8000</td>
+                        <td>-5450</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <h2>Table 2: Smaller EMI Schedule</h2>
-        <table id="table2">
-            <thead>
-                <tr>
-                    <th>Month-Year</th>
-                    <th>Starting Balance</th>
-                    <th>EMI</th>
-                    <th>Closing Balance</th>
-                    <th>Completed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Nov-24</td>
-                    <td>3000</td>
-                    <td>500</td>
-                    <td>2500</td>
-                    <td><input type="checkbox" checked disabled></td>
-                </tr>
-                <tr>
-                    <td>Dec-24</td>
-                    <td>2500</td>
-                    <td>500</td>
-                    <td>2000</td>
-                    <td><input type="checkbox" checked disabled></td>
-                </tr>
-                <tr>
-                    <td>Jan-25</td>
-                    <td>2000</td>
-                    <td>500</td>
-                    <td>1500</td>
-                    <td><input type="checkbox" checked disabled></td>
-                </tr>
-                <tr>
-                    <td>Feb-25</td>
-                    <td>1500</td>
-                    <td>500</td>
-                    <td>1000</td>
-                    <td><input type="checkbox" data-id="6"></td>
-                </tr>
-                <tr>
-                    <td>Mar-25</td>
-                    <td>1000</td>
-                    <td>500</td>
-                    <td>500</td>
-                    <td><input type="checkbox" data-id="7"></td>
-                </tr>
-                <tr>
-                    <td>Apr-25</td>
-                    <td>500</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td><input type="checkbox" data-id="8"></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <button id="completeButton">Save Completed States</button>
-        <div class="completed-message" id="completedMessage">Task Completed!</div>
-    </div>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+                <!-- Table 2 -->
+                <section id="table2">
+                    <h2>Table 2: Smaller EMI Schedule</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Month-Year</th>
+                                <th>EMI No.</th>
+                                <th>Starting Balance</th>
+                                <th>EMI</th>
+                                <th>Closing Balance</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table2Body">
+                            <tr>
+                                <td>Nov-24</td>
+                                <td>1st EMI</td>
+                                <td>3000</td>
+                                <td>500</td>
+                                <td>2500</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Dec-24</td>
+                                <td>2nd EMI</td>
+                                <td>2500</td>
+                                <td>500</td>
+                                <td>2000</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Jan-25</td>
+                                <td>3rd EMI</td>
+                                <td>2000</td>
+                                <td>500</td>
+                                <td>1500</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Feb-25</td>
+                                <td>4th EMI</td>
+                                <td>1500</td>
+                                <td>500</td>
+                                <td>1000</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Mar-25</td>
+                                <td>5th EMI</td>
+                                <td>1000</td>
+                                <td>500</td>
+                                <td>500</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Apr-25</td>
+                                <td>6th EMI</td>
+                                <td>500</td>
+                                <td>500</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        
+            <script>
+                const currentDate = new Date();
+                const today = currentDate.getDate();
+                const currentMonth = currentDate.getMonth() + 1;
+                const currentYear = currentDate.getFullYear();
+        
+                function updateStatusAndBalance() {
+                    let nextStartingBalance = "N/A";
+                    let foundUpcoming = false;
+        
+                    function updateTableStatus(tableBody) {
+                        tableBody.forEach((row, index, rows) => {
+                            const [monthYearCell, , startingBalanceCell] = row.children;
+                            const monthYear = monthYearCell.innerText.split("-");
+                            const emiMonth = new Date(`01 ${monthYear[0]} 20${monthYear[1]}`).getMonth() + 1;
+                            const emiYear = new Date(`01 ${monthYear[0]} 20${monthYear[1]}`).getFullYear();
+        
+                            if (!foundUpcoming) {
+                                if (
+                                    emiYear < currentYear ||
+                                    (emiYear === currentYear && emiMonth < currentMonth) ||
+                                    (emiYear === currentYear && emiMonth === currentMonth && today > 10)
+                                ) {
+                                    row.children[5].innerHTML = `<span class="paid">Paid</span>`;
+                                    if (rows[index + 1]) {
+                                        nextStartingBalance = rows[index + 1].children[2].innerText;
+                                    }
+                                } else {
+                                    row.children[5].innerHTML = `<span class="upcoming">Upcoming</span>`;
+                                    foundUpcoming = true;
+                                }
+                            } else {
+                                row.children[5].innerHTML = `<span class="pending">Pending</span>`;
+                            }
+                        });
+                    }
+        
+                    const table1Body = Array.from(document.querySelectorAll("#table1Body tr"));
+                    const table2Body = Array.from(document.querySelectorAll("#table2Body tr"));
+        
+                    updateTableStatus(table1Body);
+                    foundUpcoming = false; // Reset for table 2
+                    updateTableStatus(table2Body);
+        
+                    if (nextStartingBalance !== "N/A") {
+                        document.querySelector("#currentBalance").innerHTML = `<strong>Current Balance:</strong> ${nextStartingBalance}`;
+                    }
+                }
+        
+                window.onload = updateStatusAndBalance;
+            </script>
+        </body>
+        </html>
+        
